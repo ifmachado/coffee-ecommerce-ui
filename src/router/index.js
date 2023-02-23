@@ -46,7 +46,6 @@ const routes = [
     component: MyProduct
   },
 
-
 ]
 
 const router = createRouter({
