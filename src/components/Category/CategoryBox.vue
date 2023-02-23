@@ -14,7 +14,9 @@
       <p class="card-text">
         {{ category.description }}
       </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <router-link :to="{name: 'EditCategory', params: {id : category.id}}">
+      <a href="#" class="btn btn-primary">Edit</a>
+      </router-link>
     </div>
   </div>
 </template>

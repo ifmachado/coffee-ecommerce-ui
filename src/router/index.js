@@ -3,9 +3,11 @@ import HomeView from '../views/HomeView.vue'
 import MyAdmin from '../views/MyAdmin.vue'
 import MyCategory from '../views/Category/MyCategory.vue'
 import AddCategory from '../views/Category/AddCategory.vue'
+import EditCategory from '../views/Category/EditCategory.vue'
 import ListProducts from '../views/Category/ListProducts.vue'
 import MyProduct from '../views/Product/MyProduct.vue'
 import AddProduct from '../views/Product/AddProduct.vue'
+import EditProduct from '../views/Product/EditProduct.vue'
 import ShowDetails from '../views/Product/ShowDetails.vue'
 import SignUp from '../views/Product/SignUp.vue'
 import SignIn from '../views/Product/SignIn.vue'
@@ -30,6 +32,13 @@ const routes = [
     name: 'AddCategory',
     component: AddCategory
   },
+
+  {
+    path: '/admin/category/edit/:id',
+    name: 'EditCategory',
+    component: EditCategory
+  },
+
 
   {
     path: '/admin/category',
@@ -59,6 +68,12 @@ const routes = [
     path: '/admin/product/add',
     name: 'AddProduct',
     component: AddProduct
+  },
+
+  {
+    path: '/admin/product/edit/:id',
+    name: 'EditProduct',
+    component: EditProduct
   },
 
   { 
