@@ -3,8 +3,48 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
-  <router-view/>
+  <router-view
+    :baseURL="baseURL"
+    :categories="categories"
+    :products="products"></router-view>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default{
+  data() {
+    return {
+      baseURL : "http://localhost:8080",
+      products: [],
+      categories: []
+    }
+  },
+  methods: {
+    async fetchData() {
+      // api call to get all the categories
+      await axios.get(this.baseURL + "category/")
+      .then(res => {
+        this.categories = res.data
+      }).catch((err) => console.log('err', err));
+
+      //api call to get product
+      await axios.get(this.baseURL + "product/")
+      .then(res => {
+        this.products = res.data
+      }).catch((err) => console.log('err', err));
+
+    }
+
+    
+
+  },
+  mounted() {
+    this.fetchData();
+  }
+};
+
+</script>
 
 <style>
 #app {
