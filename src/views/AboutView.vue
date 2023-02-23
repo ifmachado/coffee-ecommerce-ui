@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-dark py-5 bg-cover" id="background-div">
+  <header class="header bg-dark py-5 bg-cover">
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-6">
@@ -45,9 +45,12 @@
     min-height: 100vh;
   }
 
-  #background-div {
-    background: url("../assets/5.png");
-  }
+  .header {
+    background-image: url("https://assets.bonappetit.com/photos/5c366551f212512d0e6cefd0/8:5/w_2696,h_1685,c_limit/Basically-Coffee-0219-03.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
   
   .bg-cover{
     background-size: cover !important;
