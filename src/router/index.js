@@ -3,11 +3,10 @@ import HomeView from '../views/HomeView.vue'
 import MyAdmin from '../views/MyAdmin.vue'
 import MyCategory from '../views/Category/MyCategory.vue'
 import AddCategory from '../views/Category/AddCategory.vue'
+import ListProducts from '../views/Category/ListProducts.vue'
 import MyProduct from '../views/Product/MyProduct.vue'
 import AddProduct from '../views/Product/AddProduct.vue'
 import ShowDetails from '../views/Product/ShowDetails.vue'
-
-
 
 
 const routes = [
@@ -35,6 +34,12 @@ const routes = [
     path: '/admin/category',
     name: 'MyCategory',
     component: MyCategory
+  },
+
+  {
+    path: '/category/show/:id',
+    name: 'ListProducts',
+    component: ListProducts
   },
 
   { 
