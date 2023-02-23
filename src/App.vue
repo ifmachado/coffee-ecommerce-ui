@@ -1,29 +1,26 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/admin/category">Shop</router-link> |
-    <router-link to='/signup'>Sign Up</router-link> |
-    <router-link to='/signin'>Sign In</router-link>|
-    <router-link to="/admin">Admin</router-link> |
-    <router-link to="/cart">Cart</router-link>
-  </nav>
-  <router-view
+  <MyNavbar />
+  <router-view v-if="categories && products"
     :baseURL="baseURL"
     :categories="categories"
-    :products="products">
+    :products="products"
+    @fecthData="fetchData">
   </router-view>
+  <MyFooter />
 </template>
 
 <script>
+import MyNavbar from './components/MyNavbar.vue';
+import MyFooter from './components/MyFooter.vue';
 import axios from 'axios';
 
 export default{
+  components: { MyNavbar, MyFooter },
   data() {
     return {
       baseURL : "http://localhost:8080",
-      products: [],
-      categories: []
+      products: null,
+      categories: null
     }
   },
 
@@ -60,16 +57,16 @@ export default{
   color: #2c3e50;
 }
 
-nav {
+#nav {
   padding: 30px;
 }
-
-nav a {
+#nav a {
   font-weight: bold;
   color: #2c3e50;
 }
-
-nav a.router-link-exact-active {
+#nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+
+MyNavbar
