@@ -5,7 +5,8 @@
     <router-link to="/admin/category">Shop</router-link> |
     <router-link to='/signup'>Sign Up</router-link> |
     <router-link to='/signin'>Sign In</router-link>|
-    <router-link to="/admin">Admin</router-link>
+    <router-link to="/admin">Admin</router-link> |
+    <router-link to="/cart">Cart</router-link>
   </nav>
   <router-view
     :baseURL="baseURL"
