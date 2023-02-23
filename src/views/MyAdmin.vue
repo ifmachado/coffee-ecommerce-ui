@@ -1,7 +1,12 @@
 <template>
-    <router-link :to="{name: 'AdminProduct'}" >
-        <button class="btn btn-primary btn-lg"> Admin Product</button>
+    <router-link :to="{name: 'MyCategory'}" >
+        <button class="btn btn-primary btn-lg"> Categories</button>
     </router-link>
+    <br/>
+    <router-link :to="{name: 'MyProduct'}" >
+        <button class="btn btn-primary btn-lg"> Products</button>
+    </router-link>
+
 </template>
 <script>
 export default {

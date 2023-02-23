@@ -2,11 +2,14 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+    <router-link to="/admin">Admin</router-link>
+
   </nav>
   <router-view
     :baseURL="baseURL"
     :categories="categories"
-    :products="products"></router-view>
+    :products="products">
+  </router-view>
 </template>
 
 <script>
@@ -20,6 +23,7 @@ export default{
       categories: []
     }
   },
+
   methods: {
     async fetchData() {
       // api call to get all the categories
