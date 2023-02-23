@@ -11,6 +11,7 @@ import EditProduct from '../views/Product/EditProduct.vue'
 import ShowDetails from '../views/Product/ShowDetails.vue'
 import SignUp from '../views/Product/SignUp.vue'
 import SignIn from '../views/Product/SignIn.vue'
+import MyCart from '../views/Product/MyCart.vue'
 
 const routes = [
   {
@@ -90,6 +91,11 @@ const routes = [
     path: '/signin',
     name: 'SignIn',
     component: SignIn
+  },
+  {
+    path: '/cart',
+    name: 'MyCart',
+    component: MyCart
   },
 
 ]

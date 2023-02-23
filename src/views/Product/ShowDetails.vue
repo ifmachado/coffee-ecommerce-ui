@@ -12,8 +12,8 @@
                         </div>
                         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
                         <div class="d-flex">
-                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <input class="form-control text-center me-3" id="inputQuantity" type="number" v-bind:value="quantity" style="max-width: 3rem" />
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" @click="addToCart">
                                 <i class="bi-cart-fill me-1"></i>
                                 Add to cart
                             </button>
@@ -23,23 +23,109 @@
             </div>
     </section>
 </template>
+
+
+
+
+
+
 <script>
-    export default {
-        data() {
-            return {
-                product: {},
-                category: {}
+
+import swal from "sweetalert";
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      product: {},
+      category: {},
+      id: null,
+      token: null,
+      //isAddedToWishlist: false,
+      //wishlistString: "Add to wishlist",
+      quantity: 1,
+    };
+  },
+  props: ["baseURL", "products", "categories"],
+  methods: {
+    // addToWishList(productId) {
+    //   axios
+    //     .post(`${this.baseURL}wishlist/add?token=${this.token}`, {
+    //       id: productId,
+    //     })
+    //     .then(
+    //       (response) => {
+    //         if (response.status == 201) {
+    //           this.isAddedToWishlist = true;
+    //           this.wishlistString = "Added to WishList";
+    //         }
+    //       },
+    //       (error) => {
+    //         console.log(error);
+    //       }
+    //     );
+    // },
+    addToCart() {
+      if (!this.token) {
+        swal({
+          text: "Please log in first!",
+          icon: "error",
+        });
+        return;
+      }
+      axios
+        .post(`${this.baseURL}cart/add?token=${this.token}`, {
+          productId: this.productId,
+          quantity: this.quantity,
+        })
+        .then(
+          (response) => {
+            if (response.status == 201) {
+              swal({
+                text: "Product Added to the cart!",
+                icon: "success",
+                closeOnClickOutside: false,
+              });
+              // refresh nav bar
+              this.$emit("fetchData");
             }
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+    },
+    listCartItems() {
+      axios.get(`${this.baseURL}cart/?token=${this.token}`).then(
+        (response) => {
+          if (response.status === 200) {
+            this.$router.push("/cart");
+          }
         },
-        props: ["baseURL", "products", "categories"],
-        mounted() {
-            this.id = this.$route.params.id;
-            this.product = this.products.find((product) => product.id == this.id)
-            this.category = this.categories.find(category =>
-                category.id == this.product.categoryId)
+        (error) => {
+          console.log(error);
         }
-    }
+      );
+    },
+  },
+  mounted() {
+    this.id = this.$route.params.id;
+    this.product = this.products.find((product) => product.id == this.id);
+    this.category = this.categories.find(
+      (category) => category.id == this.product.categoryId
+    );
+    this.token = localStorage.getItem("token");
+  },
+};
 </script>
+
+
+
+
+
+
+
+
 <style>
     :root {
   --bs-blue: #0d6efd;
