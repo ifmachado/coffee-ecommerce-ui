@@ -2,8 +2,10 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
+    <router-link to="/admin/category">Shop</router-link> |
+    <router-link to='/signup'>Sign Up</router-link> |
+    <router-link to='/signin'>Sign In</router-link>|
     <router-link to="/admin">Admin</router-link>
-
   </nav>
   <router-view
     :baseURL="baseURL"

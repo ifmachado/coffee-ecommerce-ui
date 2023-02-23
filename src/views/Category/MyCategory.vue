@@ -15,7 +15,7 @@
       <div v-for="category of categories" 
       :key="category.id" 
       class="col-md-6 col-xl-4 col-12 pt-3  justify-content-around d-flex">
-<CategoryBox :category="category"></CategoryBox>
+      <CategoryBox :category="category"></CategoryBox>
     </div>
     </div>
  </div>

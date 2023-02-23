@@ -17,9 +17,9 @@
     </div>
 </template>
 <script>
-    // import ProductBox from "../../components/Product/ProductBox.vue";
+    import ProductBox from "../../components/Product/ProductBox.vue";
     export default {
-        // components: {ProductBox},
+        components: {ProductBox},
         data() {
             return {
                 id: null,
