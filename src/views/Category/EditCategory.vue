@@ -50,6 +50,8 @@
                 await axios.post(`http://localhost:8080/category/update/${this.id}`,
                     this.category)
                 .then(() => {
+                    this.$emit("fetchData");
+                    this.$router.push({name: 'MyCategory'})
                     swal({
                         text: "Category updated successfully",
                         icon: "success"

@@ -1,5 +1,5 @@
 <template>
-    <div class="card h-100 w-100">
+    <div class="card h-100 w-100" style="margin-top: 10px">
         <div class="embed-responsive embed-responsive-16by9">
             <img
                 class="card-img-top embed-responsive-item"
@@ -17,7 +17,7 @@
             <p class="card-text">
                 € {{ product.price }}
             </p>
-            <router-link :to="{name: 'EditProduct', params: {id : product.id}}">
+            <router-link :to="{name: 'EditProduct', params: {id : product.id}}" v-show="$route.name == 'MyProduct'">
             <a href="#" class="btn btn-primary">Edit</a>
             </router-link>
         </div>
@@ -33,4 +33,8 @@
     .card-img-top {
         object-fit: cover;
     }
+
+    .card {
+  border: none;
+}
 </style>

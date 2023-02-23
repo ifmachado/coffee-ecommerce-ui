@@ -3,16 +3,19 @@
   <router-view v-if="categories && products"
     :baseURL="baseURL"
     :categories="categories"
-    :products="products">
+    :products="products"
+    @fecthData="fetchData">
   </router-view>
+  <MyFooter />
 </template>
 
 <script>
 import MyNavbar from './components/MyNavbar.vue';
+import MyFooter from './components/MyFooter.vue';
 import axios from 'axios';
 
 export default{
-  components: { MyNavbar },
+  components: { MyNavbar, MyFooter },
   data() {
     return {
       baseURL : "http://localhost:8080",

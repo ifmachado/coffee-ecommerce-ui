@@ -14,7 +14,7 @@
       <p class="card-text">
         {{ category.description }}
       </p>
-      <router-link :to="{name: 'EditCategory', params: {id : category.id}}">
+      <router-link :to="{name: 'EditCategory', params: {id : category.id}}" v-show="$route.name == 'MyCategory'">
       <a href="#" class="btn btn-primary">Edit</a>
       </router-link>
     </div>
@@ -31,6 +31,9 @@ export default {
 <style scoped>
 .card-img-top {
   object-fit: cover;
+}
+.card {
+  border: none;
 }
 </style>
 

@@ -48,6 +48,12 @@ const routes = [
   },
 
   {
+    path: '/category/',
+    name: 'CustomerCategory',
+    component: MyCategory
+  },
+
+  {
     path: '/category/show/:id',
     name: 'ListProducts',
     component: ListProducts
@@ -64,6 +70,13 @@ const routes = [
     name: 'MyProduct',
     component: MyProduct
   },
+
+  { 
+    path: '/product',
+    name: 'CustomerProduct',
+    component: MyProduct
+  },
+
 
   { 
     path: '/admin/product/add',

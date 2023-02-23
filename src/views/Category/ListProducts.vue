@@ -30,13 +30,6 @@
         mounted() {
             this.id = this.$route.params.id;
             this.category = this.categories.find(category => category.id == this.id)
-            // if (this.category.products.length == 0) {
-            //     this.msg = "no products found"
-            // } else if (this.category.products.length == 1) {
-            //     this.msg = "Only 1 product found"
-            // } else {
-            //     this.msg = this.category.products.length + " products found"
-            // }
         }
     }
 </script>

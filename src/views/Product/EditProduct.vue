@@ -60,6 +60,8 @@
                 await axios.post(`http://localhost:8080/product/update/${this.id}`,
                     this.product)
                     .then(() => {
+                        this.$emit("fetchData");
+                        this.$router.push({name: 'MyProduct'})
                         swal({
                             text: "Product updated successfully",
                             icon: "success"
