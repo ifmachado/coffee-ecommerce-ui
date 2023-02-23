@@ -19,9 +19,9 @@
              <textarea type="text" class="form-control" v-model="description" required ></textarea>
            </div>
            <div class="form-group">
-             <label>Image</label>
-             <input type="url" class="form-control" v-model="imageURL" required>
-           </div>
+              <label>Image</label>
+              <input type="text"  v-model="imageURL" class="form-control" >
+            </div>
            <button type="button" class="btn btn-primary" @click="addCategory">Submit</button>
          </form>
         </div>
@@ -38,19 +38,20 @@ export default {
 
     data(){
         return{
-            categoryName: "", 
-            description: "",
-            imageURL: "",
+            categoryName: null, 
+            description: null,
+            imageURL: null,
         };
     },
     methods:{
         addCategory(){
-            console.log(this.categoryName, this.description)
+            console.log(this)
             const newCategory = {
                 categoryName: this.categoryName,
                 description: this.description,
                 imageURL: this.imageURL,
             };
+            console.log(newCategory)
             const baseURL = "http://localhost:8080";
 
     axios({
