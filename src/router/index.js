@@ -5,6 +5,7 @@ import MyCategory from '../views/Category/MyCategory.vue'
 import AddCategory from '../views/Category/AddCategory.vue'
 import MyProduct from '../views/Product/MyProduct.vue'
 import AddProduct from '../views/Product/AddProduct.vue'
+import ShowDetails from '../views/Product/ShowDetails.vue'
 
 
 
@@ -52,6 +53,12 @@ const routes = [
     path: '/admin/product/add',
     name: 'AddProduct',
     component: AddProduct
+  },
+
+  { 
+    path: '/product/show/:id',
+    name: 'ShowDetails',
+    component: ShowDetails
   },
 
 ]
